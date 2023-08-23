@@ -1,4 +1,4 @@
-export default basicRoutes = [
+export default [
     {
         name: '404',
         path: '/404',
