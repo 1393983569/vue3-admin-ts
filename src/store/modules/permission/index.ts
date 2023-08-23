@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia'
 import { asyncRouter } from '@/router/routers'
 
-function filterAsyncRoutes(routerList: any, role: []) {
+function filterAsyncRoutes(routerList: [], role: []) {
     console.log(routerList, role)
     return routerList
 }
 
-export const useUseUserInfo = defineStore('permission', {
+export const usePermissionStore = defineStore('permission', {
     state: () => ({
         role: [],
         accessRoutes: []
@@ -17,7 +17,6 @@ export const useUseUserInfo = defineStore('permission', {
         },
         generateRoutes(route: []) {
             this.accessRoutes = filterAsyncRoutes(route, [])
-            return this.accessRoutes
         }
     }
 })
