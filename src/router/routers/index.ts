@@ -18,7 +18,7 @@ export default basicRoutes = [
 ]
 
 const asyncRouter:[] = []
-const modules = import.meta.import('@/views/**/router.js')
+const modules = import.meta.glob('@/views/**/router.js', {eager: true})
 Object.keys(modules).forEach((item:any) => {
     asyncRouter.push(item)
 })
