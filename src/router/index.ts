@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import { basicRoutes } from './routers'
+import { asyncRouter } from './routers'
 import { usePermissionStore } from '@/store'
 
 const isHash = import.meta.env.VITE_USE_HASH === 'true'
 export const router = createRouter({
     // 路由模式
     history: isHash ? createWebHashHistory('/') : createWebHistory('/'),
-    routes: basicRoutes,
+    routes: asyncRouter,
     // 滚动行为 期望滚动到哪个的位置
     scrollBehavior: () => ({ left: 0, top: 0 }),
 })
@@ -24,8 +24,8 @@ export async function addDynamicRoutes() {
     });
 }
 
-function setupRouter(app:) {
+function setupRouter(app:any) {
     addDynamicRoutes()
-    beforeCreateRouterHandle(router)
+    // beforeCreateRouterHandle(router)
 
 }
